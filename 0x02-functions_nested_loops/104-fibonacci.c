@@ -13,7 +13,7 @@ int main(void)
 	unsigned long fib1Half1, fib1Half2, fib2Half1, fib2Half2;
 	unsigned long half1, half2;
 
-	for (count = 0; count  <= 92; count++)
+	for (count = 0; count  < 92; count++)
 	{
 		sum = fib1 + fib2;
 		printf("%lu, ", sum);
