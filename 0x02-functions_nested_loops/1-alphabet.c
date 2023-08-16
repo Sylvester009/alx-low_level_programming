@@ -4,13 +4,13 @@
  * main - print lowercase and a new line
  */
 
-int main(void)
+void print_alphabet(void)
 {
-	char alp[] = "abcdefghijklmnopqrstuvwxyz";
-	int i;
+	char alp;
 
-	for (i = 0; i < 26; i++)
+	for (alp = 'a'; alp <= 'z'; alp++)
 	{
-		_putchar(alp[i]);
+		_putchar(alp);
 	}
 	_putchar('\n');
+}
