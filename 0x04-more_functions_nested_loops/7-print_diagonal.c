@@ -1,12 +1,12 @@
 #include "main.h"
 /**
- * print_line - draws a straight line in the terminal
- * @n: number of times _ should be printed
+ * print_line - draws a diagonal line in the terminal
+ * @n: number of times \ should be printed
  */
 
-void print_line(int n)
+void print_diagonal(int n)
 {
-	int c;
+	int c, d;
 
 	if (n <= 0)
 	{
@@ -16,8 +16,12 @@ void print_line(int n)
 	{
 		for (c = 0; c < n; c++)
 		{
-			_putchar(95);
+			for (d = 0; d < c; d++)
+			{
+			_putchar(32);
+			}
+			_putchar(92);
+			_putchar('\n');
 		}
-		_putchar('\n');
 	}
 }
