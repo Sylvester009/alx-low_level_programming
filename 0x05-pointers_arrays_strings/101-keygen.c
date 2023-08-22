@@ -3,8 +3,8 @@
 #include <time.h>
 
 /**
- * main - program that generates random valid password
- * For program 101-crackme
+ * main - program that generates random valid passwords
+ *
  * Return: 0
  */
 
@@ -15,7 +15,8 @@ int main(void)
 	int t;
 
 	srand(time(NULL));
-	for (c = 0; t = 2772; t > 122; c++)
+
+	for (c = 0, t = 2772; t > 122; c++)
 	{
 		myrand = (rand() % 125) + 1;
 		printf("%c", myrand);
