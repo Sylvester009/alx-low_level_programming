@@ -23,7 +23,7 @@ int _atoi(char *s)
 		{
 			isi = 1;
 			j = (j * 10)  + (s[i] - '\0');
-			b++;
+			i++;
 		}
 		if (isi == 1)
 		{
