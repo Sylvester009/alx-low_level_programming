@@ -21,7 +21,7 @@ char *rot13(char *str)
 		{
 			if (str[i] == alp[x])
 			{
-				str[i] == alprot[x];
+				str[i] = alprot[x];
 				break;
 			}
 		}
