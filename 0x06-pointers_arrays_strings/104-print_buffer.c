@@ -28,7 +28,7 @@ void print_buffer(char *b, int size)
 			if (i < y)
 				printf("%02x", *(b + x + i));
 			else
-				printf(" ");
+				printf("  ");
 			if (i % 2)
 			{
 				printf(" ");
