@@ -19,7 +19,7 @@ void rev_string(char *n)
 	}
 	x--;
 
-	for (y = 0; y < x; y++, y--)
+	for (y = 0; y < x; y++, x--)
 	{
 		temp = *(n + y);
 		*(n + y) = *(n + x);
