@@ -1,15 +1,13 @@
 #include "main.h"
 #include <stdio.h>
 
+int _sqr(int n, int i);
+
 /**
  * _sqrt_recursion - returns the square root of a number
  * @n: integer
- * @i: interate number
- * _sqr - calculate square root
  * Return: Square root of n
  */
-
-int _sqr(int n, int i);
 
 int _sqrt_recursion(int n)
 {
@@ -33,5 +31,5 @@ int _sqr(int n, int i)
 	if (sqr == n)
 		return (i);
 
-	return (_sqr(n, i * 1));
+	return (_sqr(n, i + 1));
 }
