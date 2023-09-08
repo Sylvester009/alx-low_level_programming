@@ -2,12 +2,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define ERR_MSG "Error"
-
 /**
  * non_digit - checks if a string has a non-digit char
  * @str: string to be evaluated
- * Return: 0 if a non-digit is found,  otherwise 1
+ * Return: 0 if a non-digit is found, otherwise 1
  */
 
 int non_digit(char *str)
