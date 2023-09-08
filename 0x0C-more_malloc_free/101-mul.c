@@ -22,7 +22,7 @@ int non_digit(char *str)
 }
 
 /**
- * strlen - returns the length of a string
+ * _strlen - returns the length of a string
  * @str: string to evaluate
  * Return: the length of the string
  */
