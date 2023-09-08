@@ -29,7 +29,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	while (i < length1)
 	{
-		s[i] = s1[i];
+		x[i] = s1[i];
 		i++;
 	}
 
