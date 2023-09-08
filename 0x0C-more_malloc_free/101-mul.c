@@ -27,7 +27,7 @@ int non_digit(char *str)
  * Return: the length of the string
  */
 
-int strlen(char *str)
+int _strlen(char *str)
 {
 	int i = 0;
 
@@ -57,44 +57,44 @@ void err(void)
 
 int main(int argc, char *argv[])
 {
-	char *s1, *s2;
-	int length1, length2, length, i, carry, digit1, digit2, *result, x = 0;
+	char *str1, *str2;
+	int length1, length2, length, i, carry, num1, num2, *mul, x = 0;
 
-	s1 = argv[1], s2 = argv[2];
-	if (argc != 3 || !non_digit(s1) || !non_digit(s2))
+	str1 = argv[1], str2 = argv[2];
+	if (argc != 3 || !non_digit(str1) || !non_digit(str2))
 		err();
-	length1 = strlen(s1);
-	length2 = strlen(s2);
+	length1 = _strlen(str1);
+	length2 = _strlen(str2);
 	length = length1 + length2 + 1;
-	result = malloc(sizeof(int) * length);
-	if (!result)
+	mul = malloc(sizeof(int) * length);
+	if (!mul)
 		return (1);
 	for (i = 0; i <= length1 + length2; i++)
-		result[i] = 0;
+		mul[i] = 0;
 	for (length1 = length1 - 1; length1 >= 0; length1--)
 	{
-		digit1 = s1[length1] - '0';
+		num1 = str1[length1] - '0';
 		carry = 0;
-		for (length2 = strlen(s2) - 1; length2 >= 0; length2--)
+		for (length2 = _strlen(str2) - 1; length2 >= 0; length2--)
 		{
-			digit2 = s2[length2] - '0';
-			carry += result[length1 + length2 + 1] + (digit1 * digit2);
-			result[length1 + length2 + 1] = carry % 10;
+			num2 = str2[length2] - '0';
+			carry += mul[length1 + length2 + 1] + (num1 * num2);
+			mul[length1 + length2 + 1] = carry % 10;
 			carry /= 10;
 		}
 		if (carry > 0)
-			result[length1 + length2 + 1] += carry;
+			mul[length1 + length2 + 1] += carry;
 	}
 	for (i = 0; i < length - 1; i++)
 	{
-		if (result[i])
+		if (mul[i])
 			x = 1;
 		if (x)
-			_putchar(result[i] + '0');
+			_putchar(mul[i] + '0');
 	}
 	if (!x)
 		_putchar('0');
 	_putchar('\n');
-	free(result);
+	free(mul);
 	return (0);
 }
