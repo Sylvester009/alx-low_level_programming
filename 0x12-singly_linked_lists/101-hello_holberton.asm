@@ -1,14 +1,12 @@
-    format db `Hello, Holberton\n`,0
-
-    global main
+    format db 'Hello, Holberton', 0
+    
+global main
     extern printf
 
 main:
-    sub rsp, 8
-    mov rdi, format
-    call printf
+    xor   eax, eax
+    lea   rdi, [format]
+    call  printf
+    mov   eax, 0
+    ret
 
-    add rsp, 8
-    mov rax, 60
-    xor rdi, rdi
-    syscall
