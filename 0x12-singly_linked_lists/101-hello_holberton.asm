@@ -1,12 +1,12 @@
-    format db 'Hello, Holberton', 0
-    
-global main
-    extern printf
-
+section .text
+global   main
+	  extern    printf
 main:
-    xor   eax, eax
-    lea   rdi, [format]
-    call  printf
-    mov   eax, 0
-    ret
+	  mov   edi, format
+	  xor   eax, eax
+	  call  printf
+	  mov   eax, 0
+	  ret
+section .data
+format: db `Hello, Holberton\n`,0
 
