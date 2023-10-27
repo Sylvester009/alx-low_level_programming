@@ -16,11 +16,7 @@ int main(int argc, char *argv[])
 
 	count = argc - 1;
 
-	while (count > 0)
-	{
-		printf("%d\n", count);
-		count--;
-	}
+	printf("%d\n", count);
 
 	return (0);
 }
