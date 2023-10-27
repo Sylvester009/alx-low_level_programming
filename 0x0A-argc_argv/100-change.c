@@ -2,9 +2,7 @@
 #include "main.h"
 
 /*
- * main - prints numbers of coins to make change
- * for an amount of money
- *
+ * main - prints coins to make change for money.
  * @argv: argument vector
  * @argc: argument count
  *
