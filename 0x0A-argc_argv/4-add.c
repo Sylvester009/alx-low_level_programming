@@ -1,12 +1,17 @@
 #include <stdio.h>
 #include "main.h"
 
+/**
+ * main - adds two positive number together
+ * @argc: argument count
+ * @argv: argument vector
+ *
+ * Return: 0 success
+ */
+
 int main(int argc, char *argv[])
 {
-	int sums;
-	int i;
-	int j;
-	int num;
+	int sums, i, j, num;
 	char *args;
 
 	if (argc == 1)
@@ -26,23 +31,20 @@ int main(int argc, char *argv[])
 				if (args[j] < '0' || args[j] > '9')
 				{
 					printf("Error\n");
-					return 1;
+					return (1);
 				}
 			}
-			
+
 			num = atoi(args);
-			
+
 			if (num < 0)
 			{
 				printf("Error\n");
-				return 1;
+				return (1);
 			}
-			
 			sums += num;
 		}
-		
 		printf("%d\n", sums);
 	}
-	
-	return 0;
+	return (0);
 }
