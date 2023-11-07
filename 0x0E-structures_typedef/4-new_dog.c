@@ -59,7 +59,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *newDog;
 	int len1, len2;
-	age = age;
 
 	len1 = strLen(name);
 	len2 = strLen(owner);

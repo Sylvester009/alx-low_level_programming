@@ -7,6 +7,8 @@
  * @age: Age of dog
  * @owner: owner of dog
  *
+ * Description: a basic structure for a dog
+ *
  */
 
 struct dog
@@ -26,5 +28,7 @@ void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
 dog_t *new_dog(char *name, float age, char *owner);
 void free_dog(dog_t *d);
+char *strCpy(char *dupl, char *origi);
+int strLen(char *str);
 
 #endif
