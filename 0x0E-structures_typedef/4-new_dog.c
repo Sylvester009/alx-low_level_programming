@@ -25,7 +25,7 @@ int strLen(char *str)
  * @dupl: pointer for the copied string
  * @origi: string to be copied
  *
- * Return : pointer to dupl
+ * Return: pointer to dupl
  */
 
 char *strCpy(char *dupl, char *origi)
@@ -68,9 +68,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (newDog == NULL)
 		return (NULL);
 
-	newDog -> name = malloc(sizeof(char) * (len1 + 1));
+	newDog->name = malloc(sizeof(char) * (len1 + 1));
 
-	newDog -> owner = malloc(sizeof(char) * (len2 + 1));
+	newDog->owner = malloc(sizeof(char) * (len2 + 1));
 
 	if (newDog->name == NULL || newDog->owner == NULL)
 	{
@@ -80,8 +80,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	strCpy(newDog -> name, name);
-	strCpy(newDog -> owner, owner);
+	strCpy(newDog->name, name);
+	strCpy(newDog->owner, owner);
+	newDog->age = age;
 
 	return (newDog);
 }
