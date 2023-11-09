@@ -35,7 +35,7 @@ void print_all(const char * const format, ...)
 				case 's':
 					str = va_arg(lists, char *);
 
-					if (!str)
+					if (str == NULL)
 						str = "(nil)";
 					printf("%s%s", separator, str);
 
