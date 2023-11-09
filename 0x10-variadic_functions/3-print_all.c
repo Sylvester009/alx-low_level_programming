@@ -35,10 +35,10 @@ void print_all(const char * const format, ...)
 				case 's':
 					str = va_arg(lists, char *);
 
-					if (str != NULL)
-						printf("%s%s", separator, str);
-					else
-						printf("%s(nil)", separator);
+					if (!str)
+						str = "(nil)";
+					printf("%s%s", sep, str);
+
 					break;
 				default:
 					i++;
