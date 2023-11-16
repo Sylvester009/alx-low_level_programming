@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
-* meassage - prints a sentence before the main
+* message - prints a sentence before the main
 * Return: void
 */
 void message(void) __attribute__ ((constructor));
