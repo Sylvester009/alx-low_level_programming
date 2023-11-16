@@ -1,10 +1,11 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
 * meassage - prints a sentence before the main
 * Return: void
 */
-void meassage(void) __attribute__ ((constructor));
+void message(void) __attribute__ ((constructor));
 
 void message(void)
 {
