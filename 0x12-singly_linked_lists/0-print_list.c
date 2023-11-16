@@ -20,8 +20,8 @@ else
 {
 printf("[%u] %s\n", h->len, h->str);
 }
-node++;
 h = h->next;
+node++;
 }
 return (node);
 }
