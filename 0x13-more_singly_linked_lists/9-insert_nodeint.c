@@ -18,7 +18,7 @@ listint_t *current = *head;
 if (!head)
 return (NULL);
  
-*new_node = malloc(sizeof(listint_t));
+new_node = malloc(sizeof(listint_t));
 if (!new_node)
 return (NULL);
 
