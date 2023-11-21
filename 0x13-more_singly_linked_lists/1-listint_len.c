@@ -2,7 +2,7 @@
 
 /**
 * listint_len - function for number of elements in a listint_t list.
-* @h: linked list of type listint_t 
+* @h: linked list of type listint_t
 * Return: number of elements in linked list
 */
 
