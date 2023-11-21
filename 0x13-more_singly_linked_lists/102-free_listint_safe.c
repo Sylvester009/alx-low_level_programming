@@ -15,7 +15,7 @@ listint_t *current;
 if (!h || !*h)
 return (0);
 
-while (*h != NULL)
+while (*h)
 {
 nextz = *h - (*h)->next;
 if (nextz > 0)
