@@ -13,34 +13,32 @@ size_t print_listint_safe(const listint_t *head);
 
 size_t looped_listint_len(const listint_t *head)
 {
-const listint_t *slow, *fast;
-size_t nodes = 1;
+    const listint_t *slow, *fast;
+    size_t nodes = 0;
 
-if (head == NULL || head->next == NULL)
-return (0);
+    if (head == NULL || head->next == NULL)
+        return 0;
 
-slow = head->next;
-fast = head->next->next;
+    slow = head->next;
+    fast = head->next->next;
 
-while (fast && fast->next)
-{
-if (slow == fast)
-{
-slow = head;
-do {
-nodes++;
-slow = slow->next;
-fast = fast->next;
-} while (slow != fast);
+    while (fast && fast->next)
+    {
+        if (slow == fast)
+        {
+            do {
+                nodes++;
+                slow = slow->next;
+            } while (slow != fast);
 
-return (nodes);
-}
+            return nodes;
+        }
 
-slow = slow->next;
-fast = fast->next->next;
-}
+        slow = slow->next;
+        fast = fast->next->next;
+    }
 
-return (0);
+    return 0;
 }
 
 /**
