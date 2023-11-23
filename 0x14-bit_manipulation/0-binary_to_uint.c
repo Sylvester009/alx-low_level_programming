@@ -22,7 +22,7 @@ convert_b = (convert_b << 1) + (*b - '0');
 }
 else
 {
-return 0;
+return (0);
 }
 
 b++;
