@@ -28,5 +28,5 @@ return 0;
 b++;
 }
 
-    return result;
+return (convert_b);
 }
