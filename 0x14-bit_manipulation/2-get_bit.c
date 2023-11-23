@@ -17,5 +17,5 @@ return (-1);
 
 bit_value = (n >> index) & 1;
 
-=return (bit_value);
+return (bit_value);
 }
