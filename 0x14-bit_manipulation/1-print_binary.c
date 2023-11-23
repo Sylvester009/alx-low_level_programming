@@ -20,9 +20,9 @@ if (nextz & 1)
 _putchar('1');
 num++;
 }
-else if (num != NULL)
+else if (num)
 _putchar('0');
 }
-if (num == NULL)
+if (!num)
 _putchar('0');
 }
