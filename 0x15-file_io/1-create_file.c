@@ -28,12 +28,12 @@ text_content = "";
 }
 fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 written = write(fd, text_content, length);
-	
-if (fd == -1 || written == -1)
+
+if (written == -1)
 {
 return (-1);
 }
-	
+
 close(fd);
 
 return (1);
