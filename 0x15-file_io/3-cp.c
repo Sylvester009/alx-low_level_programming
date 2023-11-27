@@ -27,7 +27,7 @@ void copyFile(const char *origin, const char *dest) {
     while ((read_bytes = read(fd_from, buffer, BUFFER_SIZE)) > 0) {
         write_bytes = write(fd_to, buffer, read_bytes);
         if (write_bytes != read_bytes) {
-            dprintf(STDERR_FILENO, "Error: Can't write to %s\n", desti);
+            dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
             close(fd_from);
             close(fd_to);
             exit(99);
@@ -57,13 +57,14 @@ void copyFile(const char *origin, const char *dest) {
 int main(int argc, char *argv[]) {
     const char *fileFrom;
     const char *fileTo;
-  
+
     if (argc != 3) {
         dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
         exit(97);
     }
-fileFrom = argv[1];
-  fileTo = argv[2]
+
+    fileFrom = argv[1];
+    fileTo = argv[2];
 
     copyFile(fileFrom, fileTo);
 
