@@ -27,11 +27,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	buffer = malloc(sizeof(char) * (letters));
 
-	f_read = read(fd, buf, letters);
-	written = write(STDOUT_FILENO, buf, nrd);
+	f_read = read(fd, buffer, letters);
+	written = write(STDOUT_FILENO, buffer, f_read);
 
 	free(buffer);
 	close(fd);
 
-	return (writtten);
+	return (written);
 }
