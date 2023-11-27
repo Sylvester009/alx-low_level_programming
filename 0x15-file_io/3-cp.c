@@ -1,72 +1,72 @@
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
 
-#define BUFFER_SIZE 1024
-
-void error_file(int file_from, int file_to, char *argv[]) {
-    if (file_from == -1) {
-        dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-        exit(98);
-    }
-    if (file_to == -1) {
-        dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-        exit(99);
-    }
+/**
+ * copyFile - copies the content of a file to another file.
+ * @file_from: file from.
+ * @file_to: file to.
+ * @argv: arguments vector.
+ * Return: void.
+ */
+void copyFile(int file_from, int file_to, char *argv[])
+{
+	if (file_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	if (file_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
 }
 
-void copyFile(const char *origin, const char *dest) {
-    int fd_from, fd_to, err_close;
-    ssize_t read_bytes, write_bytes;
-    char buffer[BUFFER_SIZE];
+/**
+ * main - check the code for Holberton.
+ * @argc: arguments count.
+ * @argv: arguments vector.
+ * Return: Always 0 (success).
+ */
+int main(int argc, char *argv[])
+{
+	int file_from, file_to, err;
+	ssize_t read_chars, written;
+char buff[1024];
 
-    fd_from = open(origin, O_RDONLY);
-    fd_to = open(dest, O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	if (argc != 3)
+	{
+		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
+		exit(97);
+	}
 
-    error_file(fd_from, fd_to, (char *[]){"", origin, dest});
+	file_from = open(argv[1], O_RDONLY);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	copyFile(file_from, file_to, argv);
 
-    while ((read_bytes = read(fd_from, buffer, BUFFER_SIZE)) > 0) {
-        write_bytes = write(fd_to, buffer, read_bytes);
-        if (write_bytes != read_bytes) {
-            dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
-            close(fd_from);
-            close(fd_to);
-            exit(99);
-        }
-    }
+	read_chars = 1024;
+	while (read_chars == 1024)
+	{
+		read_chars = read(file_from, buff, 1024);
+		if (read_chars == -1)
+			copyFile(-1, 0, argv);
+		written = write(file_to, buff, read_chars);
+		if (written == -1)
+			copyFile(0, -1, argv);
+	}
 
-    if (read_bytes == -1) {
-        dprintf(STDERR_FILENO, "Error reading from file %s\n", origin);
-        close(fd_from);
-        close(fd_to);
-        exit(98);
-    }
+	err = close(file_from);
+	if (err == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		exit(100);
+	}
 
-    err_close = close(fd_from);
-    if (err_close == -1) {
-        dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
-        exit(100);
-    }
-
-    err_close = close(fd_to);
-    if (err_close == -1) {
-        dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
-        exit(100);
-    }
-}
-
-int main(int argc, char *argv[]) {
-    const char *fileFrom;
-    const char *fileTo;
-
-    if (argc != 3) {
-        dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
-        exit(97);
-    }
-
-    fileFrom = argv[1];
-    fileTo = argv[2];
-
-    copyFile(fileFrom, fileTo);
-
-    return 0;
+	err = close(file_to);
+	if (err == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		exit(100);
+	}
+	return (0);
 }
