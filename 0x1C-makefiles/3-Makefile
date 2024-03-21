@@ -1,0 +1,23 @@
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+
+# build my executable
+all : $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# deletes any temp. files along with the executable
+clean :
+	$(RM) *~ $(NAME)
+
+# deletes object files
+oclean :
+	$(RM) $(OBJ)
+
+# delets all temp. files, the executable, and the obj files
+fclean : clean oclean
+
+#  forces recompilation of all source files
+re : oclean all
